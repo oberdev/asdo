@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="29df8848-5594-445c-b8a1-0df8dc3ead68" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/asdo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/asdo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bRaKKLTYPDKUQTNW1Kd3Z8DXaJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="asdo" sdk-home="$USER_HOME$/.local/share/virtualenvs/asdo-c3dZSV26/bin/python" working-directory="$PROJECT_DIR$">
+        <option name="mySdkHome" value="$USER_HOME$/.local/share/virtualenvs/asdo-c3dZSV26/bin/python" />
+        <option name="myModuleName" value="asdo" />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="asdo" type="Python.DjangoServer" factoryName="Django server">
+      <module name="asdo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29df8848-5594-445c-b8a1-0df8dc3ead68" name="Default Changelist" comment="" />
+      <created>1588597294984</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588597294984</updated>
+      <workItem from="1588597296167" duration="974000" />
+      <workItem from="1588598784616" duration="173000" />
+      <workItem from="1588598973599" duration="624000" />
+      <workItem from="1588599613042" duration="28000" />
+      <workItem from="1588601076738" duration="48000" />
+      <workItem from="1588601144966" duration="1066000" />
+      <workItem from="1588605726883" duration="12000" />
+      <workItem from="1588605760556" duration="320000" />
+      <workItem from="1588606659381" duration="98000" />
+      <workItem from="1588606765369" duration="56000" />
+      <workItem from="1588606850507" duration="91000" />
+      <workItem from="1588607003868" duration="98000" />
+      <workItem from="1588607111082" duration="53000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1588597486241</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588597486241</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init">
+      <created>1588599104428</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1588599104428</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add pylint">
+      <created>1588599175206</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588599175206</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="add pylint" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pylint" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="848" y="394" key="#Notifications" timestamp="1588599193715">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="848" y="394" key="#Notifications/0.26.1920.1054@0.26.1920.1054" timestamp="1588599193715" />
+    <state x="419" y="213" width="822" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588607163473">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="419" y="213" width="822" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1588607163473" />
+    <state x="662" y="203" width="596" height="704" key="#start" timestamp="1588604286826">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="662" y="203" width="596" height="704" key="#start/0.26.1920.1054@0.26.1920.1054" timestamp="1588604286826" />
+    <state x="572" y="48" key="CommitChangelistDialog2" timestamp="1588599175133">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="572" y="48" key="CommitChangelistDialog2/0.26.1920.1054@0.26.1920.1054" timestamp="1588599175133" />
+    <state x="822" y="148" width="909" height="814" key="EnvironmentVariablesDialog" timestamp="1588604284619">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="822" y="148" width="909" height="814" key="EnvironmentVariablesDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1588604284619" />
+    <state x="919" y="304" key="FileChooserDialogImpl" timestamp="1588601513592">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="919" y="304" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1588601513592" />
+    <state x="619" y="124" width="1032" height="844" key="SettingsEditor" timestamp="1588607101338">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="619" y="124" width="1032" height="844" key="SettingsEditor/0.26.1920.1054@0.26.1920.1054" timestamp="1588607101338" />
+  </component>
+</project>
