@@ -1,0 +1,62 @@
+.navbar-white {
+    background: #FFF;
+    border: none;
+    margin-bottom: 0;
+}
+.navbar-white a {
+    color: #404040;
+    position: relative;
+}
+.navbar-white .active a,
+.navbar-white li a:hover,
+.navbar-white li a:focus {
+    /*background: #f5f5f5;*/
+    background: #FFF;
+}
+.navbar-white .active a:after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 30px 10px 30px;
+    border-color: transparent transparent #f5f5f5 transparent;
+}
+.navbar-white .fa {
+    font-size: 18px;
+    margin: 0 5px 0 0;
+}
+.navbar-white .dropdown-menu > li > span {
+    clear: both;
+    color: #999;
+    display: block;
+    font-weight: 400;
+    line-height: 1.42857;
+    padding: 3px 20px;
+    white-space: nowrap;
+}
+
+.navbar-gray {
+    margin-left:-100%;
+    opacity: 0.5;
+    background-color: #f5f5f5;
+    border: none;
+    -webkit-transition: all 0.9s ease;
+    transition:all 0.9s ease;
+    z-index: 10;
+}
+.navbar-gray.active {
+    margin-left: 0;
+    opacity: 1;
+    transform: translate(0,0);
+    -webkit-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+}
+.navbar-gray a {
+    color: #737373;
+}

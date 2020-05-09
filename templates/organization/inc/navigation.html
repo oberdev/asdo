@@ -1,0 +1,150 @@
+<nav class="navbar navbar-white" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-white-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">АСДО</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-white-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li {% if test %} class="active" {% endif %}><a href="/test/"><i class="fa fa-list-alt fa-fw"></i> Тесты</a></li>
+                <li {% if material %} class="active" {% endif %}><a href="/material/"><i class="fa fa-book fa-fw"></i> Учебные материалы</a></li>
+                <li {% if stat %} class="active" {% endif %}><a href="/stat/"><i class="fa fa-tasks fa-fw"></i> Статистика</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {% if user_group.pk == 1 %}
+                            <i class="fa fa-graduation-cap fa-fw"></i>
+                        {% elif user_group.pk == 2 %}
+                            <i class="fa fa-university fa-fw"></i>
+                        {% else %}
+                            <i class="fa fa-life-ring fa-fw"></i>
+                        {% endif %}
+                        {{ user.profile.get_full_name }} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><span>Статус: {% for group in user.groups.all %}{{ group.name }}{% endfor %}</span></li>
+                        <li><span>ВУЗ: {{ user.profile.university }}</span></li>
+                        <li><span>Кафедра: {{ user.profile.department }}</span></li>
+                        <li class="divider"></li>
+                        <li><a href="{% url 'logout' %}">Выход</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+
+{% if not home %}
+<nav class="navbar navbar-gray" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-gray-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-gray-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Университет: <strong>{{ university.name }}</strong></a>
+                    {% if university_list %}
+                        <ul class="dropdown-menu" role="menu" id="university_list">
+                            {% for item in university_list %}
+                                <li><a href="
+                                    {% if materials_page %}
+                                        {% url 'material_university' item.pk %}
+                                    {% elif test_page %}
+                                        {% url 'test_university' item.pk %}
+                                    {% else %}
+                                        {% url 'stat_university' item.pk %}
+                                    {% endif %}
+                                    ">{{ item.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                <li><a><i class="fa fa-angle-right"></i></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Кафедра: <strong>{{ department.name }}</strong></a>
+                    {% if department_list %}
+                        <ul class="dropdown-menu" role="menu" id="department_list">
+                            {% for item in department_list %}
+                                <li><a href="
+                                    {% if materials_page %}
+                                        {% url 'material_department' university.id item.pk %}
+                                    {% elif test_page %}
+                                        {% url 'test_department' university.id item.pk %}
+                                    {% else %}
+                                        {% url 'stat_department' university.id item.pk %}
+                                    {% endif %}
+                                    ">{{ item.full_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                <li><a><i class="fa fa-angle-right"></i></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Дисциплина: <strong>{{ subject.name }}</strong></a>
+                    {% if subject_list %}
+                        <ul class="dropdown-menu" role="menu" id="subject_list">
+                            {% for item in subject_list %}
+                                <li><a href="
+                                    {% if materials_page %}
+                                        {% url 'material_subject' university.id department.id item.pk %}
+                                    {% elif test_page %}
+                                        {% url 'test_subject' university.id department.id item.pk %}
+                                    {% else %}
+                                        {% url 'stat_subject' university.id department.id item.pk %}
+                                    {% endif %}
+                                    ">{{ item.full_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                {% if user_group.pk == 1 %}
+                    <li><a><i class="fa fa-angle-right"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Преподаватель: <strong>{{ lector.profile.get_name }}</strong></a>
+                        {% if lector_list %}
+                            <ul class="dropdown-menu" role="menu" id="lector_list">
+                                {% for item in lector_list %}
+                                    <li><a href="
+                                        {% if materials_page %}
+                                            {% url 'material_lector' university.id department.id subject.id item.pk %}
+                                        {% elif test_page %}
+                                            {% url 'test_lector' university.id department.id subject.id item.pk %}
+                                        {% else %}
+                                            {% url 'stat_lector' university.id department.id subject.id item.pk %}
+                                        {% endif %}
+                                        ">{{ item.profile.get_full_name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+{% endif %}
+
+
+

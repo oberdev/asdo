@@ -1,0 +1,222 @@
+{% extends 'organization/base.html' %}
+
+{% block add_css_js %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/fileinput.min.css">
+    <script type="text/javascript" src="{{ STATIC_URL }}js/fileinput.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/add_education_test_form.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/testing.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            university = {{ page.university.id }};
+            department = {{ page.department.id }};
+            subject = {{ page.subject.id }};
+            material = {{ page.material.id }}
+            $('#add_education_test').parent().hide();
+            $('#edit_material_btn').on('click', function(){
+               form = new EducationTestForm(university, department, subject);
+               $('#add_education_test').parent().show();
+            });
+
+            $('.pub_edu_test').on('click', function(e){
+                var q_count = parseInt($(this).attr('data-q_count')),
+                    q_simple_count = parseInt($(this).attr('data-q_simple_count')),
+                    q_normal_count = parseInt($(this).attr('data-q_normal_count')),
+                    q_difficult_count = parseInt($(this).attr('data-q_difficult_count')),
+                    level_up = parseInt($(this).attr('data-level_up')),
+                    level_down = parseInt($(this).attr('data-level_down')),
+                    msg = '';
+
+                if (q_count <= 0) {
+                    msg = 'Вы хотите опубликовать тест без вопросов! Ваши студенты не смогут с ним работать! Не надо так!';
+                }
+                var max = level_up;
+                if (level_down > max) {
+                    max = level_down;
+                }
+                if (q_simple_count < max) {
+                    msg = 'Слишком мало легких вопросов! Минимальное количество - '+ max +'. Не дай студентам расслабиться!';
+                }
+                if (q_normal_count < max) {
+                    msg = 'Маловато вопросов средней сложности! Минимальное количество - '+ max +'. Добавь еще немного!';
+                }
+                if (q_difficult_count < max) {
+                    msg = 'Мало сложных вопросов! Минимальное количество - '+ max +'. Добавь хардкора!';
+                }
+
+
+                if (msg) {
+                    $('.pub_alert .msg').text(msg);
+                    $('.pub_alert').show();
+                    $('body, html').scrollTop(-100, 200);
+                    e.preventDefault();
+                    return false;
+                }
+
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-warning pub_alert" role="alert">
+{#                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>#}
+                        <h4><i class="fa fa-warning"></i> Внимание!</h4>
+                        <p class="msg">Вы хотите опубликовать тест без вопросов! Ваши студенты не смогут с ним работать!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="{% if file_form or form %}col-md-7{% else %}col-md-12{% endif %}">
+                    <div class="material-cart">
+                        <h1>{{ page.name }}</h1>
+                        <div class="desc">{{ page.description|safe }}</div>
+                        {% if user_group.pk == 1 %}
+                            <button data-test_id="{{ page.pk }}" class="btn btn-success pull-right start_test">Начать тест</button>
+                        {% endif %}
+                        <dl class="dl-horizontal">
+                            <dt>Университет:</dt>
+                            <dd>{{ page.university }}</dd>
+                            <dt>Кафедра:</dt>
+                            <dd>{{ page.department }}</dd>
+                            <dt>Дисциплина:</dt>
+                            <dd>{{ page.subject }}</dd>
+                            <dt>Автор:</dt>
+                            <dd>{{ page.author.profile.get_full_name }}</dd>
+                            {% if user_is_lector %}
+                                <dt>Статус:</dt>
+                                <dd>{% if is_published %}Опубликован{% else %}Не опубликован{% endif %}</dd>
+                            {% else %}
+                                <dt>Статус:</dt>
+                                <dd>Опубликован</dd>
+                            {% endif %}
+                            <dt>Учебный материал:</dt>
+                            <dd><a href="{{ page.material.get_absolute_url }}" target="_blank">{{ page.material }}</a></dd>
+                        {% if user_group.pk == 2 %}
+                            <hr/>
+                            <dt>Повышение сложности</dt>
+                            <dd>{{ page.level_up }} правильных ответа</dd>
+                            <dt>Понижение сложности</dt>
+                            <dd>{{ page.level_down }} неправильных ответа</dd>
+                            <dt>Оценка 2</dt>
+                            <dd>< {{ page.fail }}%</dd>
+                            <dt>Оценка 3</dt>
+                            <dd>< {{ page.not_fail }}%</dd>
+                            <dt>Оценка 4</dt>
+                            <dd>< {{ page.good }}%</dd>
+                            <dt>Оценка 5</dt>
+                            <dd>>= {{ page.good }}%</dd>
+                            <hr/>
+                            <dt>Простых вопросов</dt>
+                            <dd>{{ page.get_simple_questions.count }}</dd>
+                            <dt>Средних вопросов</dt>
+                            <dd>{{ page.get_normal_questions.count }}</dd>
+                            <dt>Сложных вопросов</dt>
+                            <dd>{{ page.get_difficult_questions.count }}</dd>
+                            <dt>Всего вопросов</dt>
+                            <dd>{{ page.get_questions.count }}</dd>
+                        {% endif %}
+
+
+                        </dl>
+                        {% if user_group.pk == 2 %}
+                        <div class="action_panel">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cogs"></i> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% if not page.pub %}
+                                    <li><a href="#" id="edit_material_btn">Редактировать</a></li>
+                                    {% endif %}
+                                    <li><a href="{% url 'toggle_pub_education_test' page.pk %}" data-q_count="{{ page.get_questions.count }}" data-q_simple_count="{{ page.get_simple_questions.count }}" data-q_normal_count="{{ page.get_normal_questions.count }}" data-q_difficult_count="{{ page.get_difficult_questions.count }}" data-level_up="{{ page.level_up }}" data-level_down="{{ page.level_down }}" {% if not is_published %}class="pub_edu_test"{% endif %}>
+                                        {% if is_published %}Снять с публикации{% else %}Опубликовать{% endif %}
+                                    </a></li>
+                                    <li class="divider"></li>
+{#                                    <li><a href="{% url 'remove_education_material' page.pk %}">Удалить</a></li>#}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                {% if user_group.pk == 2 %}
+                    <div class="material-cart">
+                        <h1>Вопросы теста</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Вопрос</th>
+                                    <th>Сложность</th>
+                                    <th>Опубликован</th>
+                                    <th></th>
+                                    {% if user_group.pk == 2 %}<th></th>{% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in questions %}
+                                <tr>
+                                    <td class="file-type">{{ forloop.counter }}</td>
+                                    <td><a href="{{ item.get_absolute_url }}" target="_blank">{{ item.question|safe }}</a></td>
+                                    <td>{{ item.complexity }}</td>
+                                    <td>{% if item.pub %}<i class="fa fa-check-circle-o text-success"></i>{% else %}<i class="fa fa-times-circle-o text-danger"></i>{% endif %}</td>
+                                    <td class="file-date">{{ item.last_update_dt|date:'d.m.Y' }}</td>
+                                    {% if user_group.pk == 2 and not page.pub %}
+                                        <td class="file-action"><a href="{% url 'remove_test_question' item.pk %}"><i class="fa fa-trash-o"></i> Удалить</a></td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                {% endif %}
+                </div>
+                {% if file_form or form %}
+                    <div class="col-md-5">
+                        <div class="form-block">
+                            {% include 'organization/inc/add_education_test_form.html' %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% if user_group.pk == 2 %}
+            <div class="row">
+                <div class="form-block">
+                    {% with file_form as form %}
+                        <h4>Добавить вопрос</h4>
+                        {% include 'organization/inc/add_test_question_form.html' %}
+                    {% endwith %}
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+
+
+
+    {% if user_group.pk == 1 %}
+        <div class="modal fade bs-example-modal-lg" id="test_modal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <div class="timer pull-left"></div>
+                        <button type="button" class="btn btn-default finish_btn hidden" data-dismiss="modal">Завершить</button>
+                        <button type="button" class="btn btn-primary get_next_question">Далее <i class="fa fa-arrow-right"></i> </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    {% endif %}
+
+{% endblock %}

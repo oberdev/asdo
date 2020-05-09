@@ -1,0 +1,62 @@
+{% extends 'organization/base.html' %}
+
+{% block add_css_js %}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+                <div class="col-sm-12 material-cart">
+                {% if materials_list %}
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Название теста</th>
+                                {% if user_group.pk == 2 %}
+                                <th>Студент</th>
+                                {% endif %}
+                                {% if user_group.pk == 1 %}
+                                <th>Преподаватель</th>
+                                {% endif %}
+                                <th>Дата</th>
+                                <th>Статус</th>
+                                <th>Время начала</th>
+                                <th>Задано вопросов</th>
+                                <th>Неправильных ответов</th>
+                                <th>Правильных ответов, %</th>
+                                <th>Оценка</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in materials_list %}
+                            <tr>
+                                <td>{{ item.test }}</td>
+                                {% if user_group.pk == 2 %}
+                                <td>{{ item.user.profile.get_name }}</td>
+                                {% endif %}
+                                {% if user_group.pk == 1 %}
+                                <td>{{ item.test.author.profile.get_name }}</td>
+                                {% endif %}
+                                <td>{{ item.question_finish|date:'d.m.Y' }}</td>
+                                <td style="text-align: center;">{% if item.force_finish %}<i class="fa fa-warning text-danger" title="Аварийное завершение"></i>{% else %}<i class="fa fa-check-circle-o text-success" title="Завершен"></i> {% endif %}</td>
+                                <td>{{ item.get_session_start|date:'H:i' }}</td>
+                                <td>{{ item.get_exist_questions.count }}</td>
+                                <td>{{ item.get_not_correct_answers.count }}</td>
+                                <td>{{ item.percent }} %</td>
+                                <td>{{ item.rating }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% else %}
+                    <div class="col-sm-12 no-data">
+                        <h1>Нет завершенных тестов в данном разделе</h1>
+                    </div>
+                {% endif %}
+                </div>
+    </div>
+
+
+{% endblock %}

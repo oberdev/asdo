@@ -1,0 +1,126 @@
+{% extends 'organization/base.html' %}
+
+{% block add_css_js %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/fileinput.min.css">
+    <script type="text/javascript" src="{{ STATIC_URL }}js/fileinput.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/add_education_material_form.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            university = {{ page.university.id }};
+            department = {{ page.department.id }};
+            subject = {{ page.subject.id }};
+            $('#add_education_material').parent().hide();
+            $('#edit_material_btn').on('click', function(){
+               form = new EducationMaterialForm(university, department, subject);
+               $('#add_education_material').parent().show();
+            });
+
+            $('.pub_edu_material').on('click', function(e){
+                var count = parseInt($(this).attr('data-count'));
+                if (count <= 0) {
+                    $('.pub_alert').show();
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-warning pub_alert" role="alert">
+{#                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>#}
+                        <h4><i class="fa fa-warning"></i> Внимание!</h4>
+                        <p>Вы хотите опубликовать учебный материал без файлов! Ваши студенты не смогут с ним работать!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="{% if file_form or form %}col-md-7{% else %}col-md-12{% endif %}">
+                    <div class="material-cart">
+                        <h1>{{ page.name }}</h1>
+                        <div class="desc">{{ page.description|safe }}</div>
+                        <dl class="dl-horizontal">
+                            <dt>Университет:</dt>
+                            <dd>{{ page.university }}</dd>
+                            <dt>Кафедра:</dt>
+                            <dd>{{ page.department }}</dd>
+                            <dt>Дисциплина:</dt>
+                            <dd>{{ page.subject }}</dd>
+                            <dt>Автор:</dt>
+                            <dd>{{ page.author.profile.get_full_name }}</dd>
+                            <dt>Статус:</dt>
+                            <dd>{% if page.pub %}Опубликован{% else %}Не опубликован{% endif %}</dd>
+                            <dt>Разделов курса:</dt>
+                            <dd>{{ files.count }}</dd>
+                        </dl>
+                        {% if user_group.pk == 2 %}
+                        <div class="action_panel">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cogs"></i> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" id="edit_material_btn">Редактировать</a></li>
+                                    <li><a href="{% url 'toggle_pub_education_material' page.pk %}" data-count="{{ files.count }}" class="pub_edu_material">
+                                        {% if page.pub %}Снять с публикации{% else %}Опубликовать{% endif %}
+                                    </a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{% url 'remove_education_material' page.pk %}">Удалить</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="material-cart">
+                        <h1>Разделы курса</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Название</th>
+                                    <th>Дата</th>
+                                    {% if user_group.pk == 2 %}<th></th>{% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in files %}
+                                <tr>
+                                    <td class="file-type"><i class="fa fa-file-pdf-o fa-fw"></i></td>
+                                    <td><a href="{{ MEDIA_URL }}{{ item.file }}" target="_blank">{{ item.name }}</a></td>
+                                    <td class="file-date">{{ item.upload_dt|date:'d.m.Y' }}</td>
+                                    {% if user_group.pk == 2 %}
+                                        <td class="file-action"><a href="{% url 'remove_education_material_file' item.pk %}"><i class="fa fa-trash-o"></i> Удалить</a></td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+                {% if file_form or form %}
+                    <div class="col-md-5">
+                        <div class="form-block">
+                            {% include 'organization/inc/add_education_material_form.html' %}
+                        </div>
+                        <div class="form-block">
+                            {% with file_form as form %}
+                                <h4>Добавить файлы</h4>
+                                {% include 'organization/inc/add_education_material_file_form.html' %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

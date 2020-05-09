@@ -1,0 +1,20 @@
+<div class="question finish_test">
+    <h4>Тест завершен</h4>
+    <p>Ваша оценка: {{ rating }}</p>
+    <p>Задано вопросов: {{ exist_questions.count }}</p>
+    {% if not_correct_answers.count %}
+    <p>Неправильных ответов: {{ not_correct_answers.count }}</p>
+    {% endif %}
+    <p>Процент: {{ procent }}</p>
+</div>
+{% if not_correct_answers.count %}
+<hr/>
+<h4>Разделы курса для повторения</h4>
+    <ul>
+    {% for a in material_parts %}
+        <li><a href="{{ a.get_absolute_url }}" target="_blank">{{ a }}</a></li>
+    {% endfor %}
+    </ul>
+<hr/>
+    <p>Перейти к полному курсу лекций: <a href="{{ material.get_absolute_url }}" target="_blank">{{ material }}</a></p>
+{% endif %}

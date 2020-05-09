@@ -1,0 +1,111 @@
+{% extends 'organization/base.html' %}
+
+{% block add_css_js %}
+
+    <script>
+    $(function(){
+        $('.pub_test_question').on('click', function(e){
+            var true_answers_count = parseInt($(this).attr('data-true_answers_count')),
+                answers_count = parseInt($(this).attr('data-answers_count')),
+                msg = '';
+
+            if (true_answers_count <= 0) {
+                msg = 'Вы хотите опубликовать вопрос без правильного ответа! Не надо так!';
+            }
+            if (true_answers_count > 1) {
+                msg = 'Вы хотите опубликовать вопрос '+true_answers_count+' правильными ответами! На данный момент возможен только один правильный ответ.';
+            }
+            if (answers_count <= 3) {
+                msg = 'Вы хотите опубликовать вопрос. Маловато будет вариантов ответов... Оптимальное количество - 4 варианта ответа.';
+            }
+            if (msg) {
+                $('.pub_alert .msg').text(msg);
+                $('.pub_alert').show();
+                $('body, html').scrollTop(-100, 200);
+                e.preventDefault();
+                return false;
+            }
+        });
+    })
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4><a href="{{ test.get_absolute_url }}"><i class="fa fa-arrow-left"></i> Назад к списку вопросов</a></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-warning pub_alert" role="alert">
+{#                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>#}
+                        <h4><i class="fa fa-warning"></i> Внимание!</h4>
+                        <p class="msg"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="{% if file_form or form %}col-md-7{% else %}col-md-12{% endif %}">
+                    <div class="material-cart">
+                        <h1>Редактирование вопроса</h1>
+                        {% if user_group.pk == 2 %}
+                        {% include 'organization/inc/add_test_question_form.html' %}
+                        <div class="action_panel">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cogs"></i> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{% url 'toggle_pub_test_question' question.pk %}" data-true_answers_count="{{ true_answers_count }}" data-answers_count="{{ answers_count }}" class="pub_test_question">
+                                        {% if question.pub %}Снять с публикации{% else %}Опубликовать{% endif %}
+                                    </a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{% url 'remove_test_question' question.pk %}">Удалить</a></li>
+                                </ul>
+                            </div>
+                            Статус: {% if question.pub %}Опубликован{% else %}Не опубликован{% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-block">
+                        <form method="post" action="" id="add_question_answer_form">
+                            {% csrf_token %}
+                            {{ formset.management_form }}
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Вариант ответа</th>
+                                        <th>Правильный</th>
+                                        <th>Удалить</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for form in formset %}
+                                        {% for field in form.hidden_fields %}{{ field }}{% endfor %}
+                                        <tr>
+                                            {% for field in form.visible_fields %}
+                                                <td>{{ field }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <button class="btn btn-success btn-block" type="submit" form="add_question_answer_form"><i class="fa fa-save fa-fw"></i> Сохранить</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

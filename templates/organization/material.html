@@ -1,0 +1,46 @@
+{% extends 'organization/base.html' %}
+
+{% block add_css_js %}
+    <script src="{{ STATIC_URL }}js/add_education_material_form.js"></script>
+    <script>
+        $(function(){
+            form = new EducationMaterialForm();
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="{% if not form %}col-sm-12{% else %}col-sm-6{% endif %}">
+                {% if materials_list %}
+                    {% for item in materials_list %}
+                        <div class="material-cart">
+                            <a href="{{ item.get_absolute_url }}"><h1>{{ item }}</h1></a>
+                            <div class="author">Автор: {{ item.author.profile.get_full_name }}</div>
+                            <div class="desc">{{ item.description|safe }}</div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-sm-12 no-data">
+                        <h1>Нет опубликованных материалов в данном разделе</h1>
+                    </div>
+                {% endif %}
+                </div>
+                {% if form %}
+                <div class="col-sm-6">
+                    <div class="form-block">
+                        <h4>Добавить учебный материал</h4>
+                        {% include 'organization/inc/add_education_material_form.html' %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+<form action="" method="post" id="add_education_material" role="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group {% if field.errors %} has-error {% endif %}">
+        <label for="{{ field.html_name }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <div class="help-block">{{ error|escape }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div class="form-group">
+        <button class="btn btn-success btn-block" type="submit"><i class="fa fa-cloud-upload fa-fw"></i> Загрузить</button>
+    </div>
+</form>

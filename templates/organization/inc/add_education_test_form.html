@@ -1,0 +1,20 @@
+<form action="{% url 'add_education_test' %}" method="post" id="add_education_test" role="form">
+    {% csrf_token %}
+    <input type="hidden" name="test_id" value="{{ page.id }}">
+    {% for field in form %}
+    <div class="form-group">
+        <label for="{{ field.html_name }}">{{ field.label }}</label>
+        {{ field }}
+        <div class="help-block"></div>
+    </div>
+    {% endfor %}
+    <div class="form-group">
+        <button class="btn btn-md btn-block btn-success" type="submit">
+            {% if page.id %}
+                <i class="fa fa-save fa-fw"></i> Сохранить
+            {% else %}
+                <i class="fa fa-plus fa-fw"></i> Создать
+            {% endif %}
+        </button>
+    </div>
+</form>
