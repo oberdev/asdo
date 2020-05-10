@@ -10,11 +10,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29df8848-5594-445c-b8a1-0df8dc3ead68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="29df8848-5594-445c-b8a1-0df8dc3ead68" name="Default Changelist" comment="update gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/asdo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/asdo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asdo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/asdo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asdo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/asdo/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap-theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.min.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +32,24 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/assets/package.json" />
   </component>
   <component name="ProjectId" id="1bRaKKLTYPDKUQTNW1Kd3Z8DXaJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -42,11 +66,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.1.0" />
+    <property name="last_opened_file_path" value="/bin" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -57,6 +84,11 @@
       </console-settings>
     </option>
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="asdo" type="Python.DjangoServer" factoryName="Django server">
       <module name="asdo" />
@@ -64,6 +96,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="asdo.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -104,7 +137,20 @@
       <workItem from="1588606765369" duration="56000" />
       <workItem from="1588606850507" duration="91000" />
       <workItem from="1588607003868" duration="98000" />
-      <workItem from="1588607111082" duration="53000" />
+      <workItem from="1588607111082" duration="903000" />
+      <workItem from="1588707370445" duration="12000" />
+      <workItem from="1588707394607" duration="2060000" />
+      <workItem from="1588723250230" duration="708000" />
+      <workItem from="1588803291334" duration="44000" />
+      <workItem from="1588804335959" duration="24000" />
+      <workItem from="1588804370824" duration="725000" />
+      <workItem from="1588904738740" duration="875000" />
+      <workItem from="1588905696836" duration="638000" />
+      <workItem from="1588991988079" duration="407000" />
+      <workItem from="1588992950763" duration="3863000" />
+      <workItem from="1589033313761" duration="1197000" />
+      <workItem from="1589034524734" duration="4747000" />
+      <workItem from="1589068755604" duration="2508000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1588597486241</created>
@@ -127,7 +173,35 @@
       <option name="project" value="LOCAL" />
       <updated>1588599175206</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update gitignore">
+      <created>1588607237525</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588607237525</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add static">
+      <created>1588995833125</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588995833125</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update gitignore">
+      <created>1589035121818</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589035121818</updated>
+    </task>
+    <task id="LOCAL-00007" summary="init fronted">
+      <created>1589071244554</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589071244555</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,11 +217,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="add pylint" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pylint" />
+    <MESSAGE value="add static" />
+    <MESSAGE value="update gitignore" />
+    <MESSAGE value="init fronted" />
+    <option name="LAST_COMMIT_MESSAGE" value="init fronted" />
   </component>
   <component name="WindowStateProjectService">
     <state x="848" y="394" key="#Notifications" timestamp="1588599193715">
@@ -158,25 +236,60 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="419" y="213" width="822" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1588607163473" />
+    <state x="696" y="353" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588607212332">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="696" y="353" key="#com.intellij.fileTypes.FileTypeChooser/0.26.1920.1054@0.26.1920.1054" timestamp="1588607212332" />
+    <state x="647" y="207" key="#index.js" timestamp="1589069874043">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="647" y="207" key="#index.js/0.26.1920.1054@0.26.1920.1054" timestamp="1589069874043" />
     <state x="662" y="203" width="596" height="704" key="#start" timestamp="1588604286826">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="662" y="203" width="596" height="704" key="#start/0.26.1920.1054@0.26.1920.1054" timestamp="1588604286826" />
-    <state x="572" y="48" key="CommitChangelistDialog2" timestamp="1588599175133">
+    <state x="558" y="151" width="809" height="638" key="CommitChangelistDialog2" timestamp="1589071244457">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state x="572" y="48" key="CommitChangelistDialog2/0.26.1920.1054@0.26.1920.1054" timestamp="1588599175133" />
+    <state x="558" y="151" width="809" height="638" key="CommitChangelistDialog2/0.26.1920.1054@0.26.1920.1054" timestamp="1589071244457" />
+    <state x="191" y="34" key="DiffContextDialog" timestamp="1588995841202">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="191" y="34" key="DiffContextDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1588995841202" />
     <state x="822" y="148" width="909" height="814" key="EnvironmentVariablesDialog" timestamp="1588604284619">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="822" y="148" width="909" height="814" key="EnvironmentVariablesDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1588604284619" />
-    <state x="919" y="304" key="FileChooserDialogImpl" timestamp="1588601513592">
+    <state x="919" y="304" width="432" height="483" key="FileChooserDialogImpl" timestamp="1589034827944">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state x="919" y="304" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1588601513592" />
-    <state x="619" y="124" width="1032" height="844" key="SettingsEditor" timestamp="1588607101338">
+    <state x="919" y="304" width="432" height="483" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1589034827944" />
+    <state width="1874" height="281" key="GridCell.Tab.0.bottom" timestamp="1589061878332">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state x="619" y="124" width="1032" height="844" key="SettingsEditor/0.26.1920.1054@0.26.1920.1054" timestamp="1588607101338" />
+    <state width="1874" height="281" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1589061878332" />
+    <state width="1874" height="281" key="GridCell.Tab.0.center" timestamp="1589061878332">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state width="1874" height="281" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1589061878332" />
+    <state width="1874" height="281" key="GridCell.Tab.0.left" timestamp="1589061878331">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state width="1874" height="281" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1589061878331" />
+    <state width="1874" height="281" key="GridCell.Tab.0.right" timestamp="1589061878332">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state width="1874" height="281" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1589061878332" />
+    <state x="568" y="125" width="1032" height="844" key="SettingsEditor" timestamp="1589040720183">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="568" y="125" width="1032" height="844" key="SettingsEditor/0.26.1920.1054@0.26.1920.1054" timestamp="1589040720183" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1588993352232">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.26.1920.1054@0.26.1920.1054" timestamp="1588993352232" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/asdo$views.coverage" NAME="views Coverage Results" MODIFIED="1588993300531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../asdo-master/organization" />
   </component>
 </project>
