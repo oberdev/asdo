@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 django = "*"
 pylint = "*"
+django-webpack-loader = "*"
+django-bulma = "*"
 
 [requires]
 python_version = "3.8"
