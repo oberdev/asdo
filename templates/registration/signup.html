@@ -1,0 +1,37 @@
+{% extends 'registration/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+        <div class="form-block login-form">
+    {% if success %}
+        <h1>Вы успешно зарегистрировались!</h1>
+{#        <p>После активации вашего акканута администратором, вы сможете продолжить работу в системе.</p>#}
+    {% else %}
+
+        <form method="post" class="form-horizontal" role="form">
+            <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <legend>Регистрация</legend>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                        <hr/>
+                </div>
+            </div>
+            <div class="row">
+                <a href="{% url 'login' %}" class="col-md-5 text-center btn btn-link btn-block">
+                    Отмена
+                </a>
+                <div class="col-md-7">
+                    <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+        </div>
+            </div>
+{% endblock %}
