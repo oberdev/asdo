@@ -9,7 +9,8 @@ verify_ssl = true
 django = "*"
 pylint = "*"
 django-webpack-loader = "*"
-django-bulma = "*"
+django-crispy-forms = "*"
+django-login-required-middleware = "*"
 
 [requires]
 python_version = "3.8"
