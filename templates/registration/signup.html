@@ -13,6 +13,23 @@
             <div class="row">
                     <div class="col-sm-12 col-md-12">
                         <legend>Регистрация</legend>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{% url 'signup_student' %}" class="text-center btn {% if role == 'student' %} btn-primary {% else %} btn-link {% endif %} btn-block">
+                            Студента
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{% url 'signup_tutor' %}" class="text-center btn {% if role == 'tutor' %} btn-primary {% else %} btn-link {% endif %} btn-block">
+                            Преподавателя
+                        </a>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <hr/>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-sm-12 col-md-12">
                         {% csrf_token %}
                         {{ form|crispy }}
                     </div>

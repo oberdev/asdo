@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'crispy_forms',
     'accounts.apps.AccountsConfig',
+    'organization.apps.OrganizationConfig'
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets", "dist"),
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_REDIRECT_URL = 'home'
 

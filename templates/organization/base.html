@@ -1,10 +1,11 @@
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html>
 {% include 'organization/inc/head.html' %}
-{% block add_css_js %}{% endblock %}
 <body>
 {% include 'organization/inc/navigation.html' %}
 {% block content %}
 {% endblock %}
+{% render_bundle 'main' 'js' %}
 </body>
 </html>
